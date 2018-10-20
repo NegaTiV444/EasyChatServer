@@ -36,6 +36,12 @@ public class MultiThreadServer {
                     try
                     {
                         command = buffReader.readLine();
+                        StringBuilder checkKik = new StringBuilder(command);
+                        if (checkKik.substring(0, 4).equalsIgnoreCase("/kik"))
+                        {
+                            StringBuilder name = new StringBuilder(checkKik.substring(5));
+                            Kik(name.toString());
+                        }
                         switch (command)
                         {
                             case "/userlist":
@@ -90,7 +96,7 @@ public class MultiThreadServer {
         for(SingleThreadServer sts : UserManagerList)
         {
             if (sts.getUser().getName().equals(name))
-                return sts.getUser().getID();
+                return sts.getUser().getID() - 1;
         }
         int i = -1;
         return i;
@@ -117,12 +123,12 @@ public class MultiThreadServer {
         System.exit(0);
     }
 
-    private void kik(String name)
+    private static void Kik(String name)
     {
         int Index = FindByName(name);
         if (Index != -1)
         {
-
+            SendToAll(new ServerMessage("SERVER", name + " was kiked by SERVER"));
             UserManagerList.get(Index).Close();
         }
     }

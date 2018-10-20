@@ -86,7 +86,7 @@ public class SingleThreadServer extends Thread{
             System.out.println("Пользователь " + getUser().getName() + " сменил имя на " + msg.getValue());
             user.setName(msg.getValue());
             Send(new ServerMessage("SERVER", "SUCCESSFULLY"));
-            SendToAll(new ServerMessage("SERVER", "Пользователь " + getUser().getName() + " зашёл чат."));
+            SendToAll(new ServerMessage("SERVER", "Пользователь " + getUser().getName() + " зашёл в чат."));
         }
         else
             Send(new ServerMessage("SERVER", "UNSUCCESSFULLY"));
@@ -106,7 +106,7 @@ public class SingleThreadServer extends Thread{
                 StringBuilder strmsg = new StringBuilder(str.substring(i));
                 if ((i = MultiThreadServer.FindByName(name.toString())) != -1)
                 {
-                    MultiThreadServer.UserManagerList.get(i - 1).Send(new ServerMessage(getUser().getName(),  "(лично вам):" + strmsg.toString()));
+                    MultiThreadServer.UserManagerList.get(i).Send(new ServerMessage(getUser().getName(),  "(лично вам):" + strmsg.toString()));
                     Send(new ServerMessage(getUser().getName(),"(для " + name.toString() + "):" + strmsg.toString()));
                 }
                 else
@@ -162,6 +162,14 @@ public class SingleThreadServer extends Thread{
     {
         System.out.println("Пользователь " + getUser().getName() + " отключился");
         MultiThreadServer.UserManagerList.remove(this);
+
+        try {
+            socket.close();
+            inputStream.close();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         isRunning = false;
     }
 
