@@ -25,7 +25,7 @@ public class SingleThreadServer extends Thread{
         int UserID = MultiThreadServer.GetClientsNumber() + 1;
         user = new User("User" + Integer.toString(UserID));
         user.setID(UserID);
-        System.out.println("Установлено новое соединение");
+        System.out.println("New connection established");
         isRunning = true;
         start();
     }
@@ -46,7 +46,7 @@ public class SingleThreadServer extends Thread{
             try
             {
                 msg = (Message)inputStream.readObject();
-                System.out.println("Пользователь " + getUser().getName() + " отправил сообщение: " + msg.getValue());
+                System.out.println("User " + getUser().getName() + " sent message: " + msg.getValue());
                 switch (msg.getType())
                 {
                     case LOGIN:
@@ -70,8 +70,8 @@ public class SingleThreadServer extends Thread{
             }
             catch (IOException | ClassNotFoundException e)
             {
-                System.out.println("Что то пошло не так: " + e.toString());
-                SendToAll(new ServerMessage("SERVER", "Пользователь " + getUser().getName() + " покинул чат."));
+                System.out.println("Something went wrong: " + e.toString());
+                SendToAll(new ServerMessage("SERVER", getUser().getName() + " left the chat."));
                 Close();
             }
         }
@@ -83,10 +83,10 @@ public class SingleThreadServer extends Thread{
         int ID = MultiThreadServer.FindByName(msg.getValue());
         if ((ID == -1) && (!msg.getValue().equalsIgnoreCase("SERVER")))
         {
-            System.out.println("Пользователь " + getUser().getName() + " сменил имя на " + msg.getValue());
+            System.out.println("User " + getUser().getName() + " changed name to " + msg.getValue());
             user.setName(msg.getValue());
             Send(new ServerMessage("SERVER", "SUCCESSFULLY"));
-            SendToAll(new ServerMessage("SERVER", "Пользователь " + getUser().getName() + " зашёл в чат."));
+            SendToAll(new ServerMessage("SERVER", getUser().getName() + " connected to the chat."));
         }
         else
             Send(new ServerMessage("SERVER", "UNSUCCESSFULLY"));
@@ -106,14 +106,14 @@ public class SingleThreadServer extends Thread{
                 StringBuilder strmsg = new StringBuilder(str.substring(i));
                 if ((i = MultiThreadServer.FindByName(name.toString())) != -1)
                 {
-                    MultiThreadServer.UserManagerList.get(i).Send(new ServerMessage(getUser().getName(),  "(лично вам):" + strmsg.toString()));
-                    Send(new ServerMessage(getUser().getName(),"(для " + name.toString() + "):" + strmsg.toString()));
+                    MultiThreadServer.UserManagerList.get(i).Send(new ServerMessage("SERVER", "(User sent  " + getUser().getName() + "  you personally):" + strmsg.toString()));
+                    Send(new ServerMessage(getUser().getName(),"(for " + name.toString() + "):" + strmsg.toString()));
                 }
                 else
-                    Send(new ServerMessage("SERVER", "Ошибка: Пользователя с именем " + name.toString() + " не существует."));
+                    Send(new ServerMessage("SERVER", "Error: User  " + name.toString() + " does't exist."));
             }
             else
-                Send(new ServerMessage("SERVER", "Ошибка: Вы не ввели сообщение"));
+                Send(new ServerMessage("SERVER", "Error: You did't enter the message"));
         }
         else
         {
@@ -135,7 +135,7 @@ public class SingleThreadServer extends Thread{
 
     private void Quit()
     {
-        SendToAll(new ServerMessage("SERVER", "Пользователь " + getUser().getName() + " покинул чат."));
+        SendToAll(new ServerMessage("SERVER", getUser().getName() + " left the chat."));
         Close();
     }
 
@@ -153,14 +153,14 @@ public class SingleThreadServer extends Thread{
         }
         catch (IOException e)
         {
-            System.out.println("Сообщение пользователя "  + this.getUser().getName() + " не отправлено: \n" + e.toString());
+            System.out.println("Message for  "  + this.getUser().getName() + " was not sent: \n" + e.toString());
         }
     }
 
 
     void Close()
     {
-        System.out.println("Пользователь " + getUser().getName() + " отключился");
+        System.out.println("User " + getUser().getName() + " disconnected");
         MultiThreadServer.UserManagerList.remove(this);
 
         try {

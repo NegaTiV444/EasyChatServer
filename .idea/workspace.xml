@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fde071c9-2221-43ac-8f10-8fea8622d035" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChatServer_V_3_0/NegaTiV/ChatServer/SingleThreadServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChatServer_V_3_0/NegaTiV/ChatServer/SingleThreadServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,15 +63,27 @@
           <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="358" />
+          <entry key="txt" value="73" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="358" />
+          <entry key="PLAIN_TEXT" value="73" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+            <state relative-caret-position="221">
+              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="105" column="70" lean-forward="true" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
+            <state relative-caret-position="51">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,8 +136,8 @@
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/ServerMessage.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/Client.java" />
-        <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" />
+        <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" />
       </list>
     </option>
   </component>
@@ -144,8 +157,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1380" />
-    <option name="height" value="780" />
+    <option name="width" value="1615" />
+    <option name="height" value="879" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -261,12 +274,20 @@
       <workItem from="1539947571524" duration="2927000" />
       <workItem from="1539970018983" duration="17914000" />
       <workItem from="1539995296571" duration="598000" />
-      <workItem from="1540033020814" duration="296000" />
+      <workItem from="1540033020814" duration="8612000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed crash at the first connection, if server is offline">
+      <created>1540033417595</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540033417595</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69365000" />
+    <option name="totallyTimeSpent" value="77681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -281,7 +302,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -289,7 +310,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32907802" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -337,6 +358,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed crash at the first connection, if server is offline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed crash at the first connection, if server is offline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -386,16 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="93" column="45" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatClient/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
@@ -405,8 +420,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="105" column="70" lean-forward="true" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
+        <state relative-caret-position="51">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -45,7 +45,7 @@ public class MultiThreadServer {
                         switch (command)
                         {
                             case "/userlist":
-                                System.out.println("Всего пользователей: " + UserManagerList.size());
+                                System.out.println("Total users: " + UserManagerList.size());
                                 for(SingleThreadServer sts : UserManagerList)
                                     System.out.println(sts.getUser().getName());
                                 break;
@@ -62,7 +62,7 @@ public class MultiThreadServer {
                 }
             }
         }).start();
-        System.out.println("Сервер запущен");
+        System.out.println("Server started");
         try
         {
             while (isRun)
@@ -70,13 +70,13 @@ public class MultiThreadServer {
                 Socket socket = server.accept();
                 try
                 {
-                    System.out.println("Кто-то пытается подключиться");
+                    System.out.println("Someone try to connect");
                     UserManagerList.add(new SingleThreadServer(socket));
                 }
                 catch (IOException e)
                 {
                     socket.close();
-                    System.out.println("Что-то пошло не так: " + e.toString());
+                    System.out.println("Something went wrong: " + e.toString());
                 }
             }
         }
@@ -106,7 +106,7 @@ public class MultiThreadServer {
     {
         for(SingleThreadServer sts : UserManagerList)
         {
-            sts.Send(new ServerMessage("SERVER", "Сервер выключен"));
+            sts.Send(new ServerMessage("SERVER", "Server was stopped"));
             sts.Close();
         }
         UserManagerList.clear();
@@ -119,7 +119,7 @@ public class MultiThreadServer {
 //            System.out.println("Сервер закрыт" + e.toString());
 //        }
         isRun = false;
-        System.out.println("Сервер остановлен.");
+        System.out.println("Server stopped.");
         System.exit(0);
     }
 
@@ -128,7 +128,7 @@ public class MultiThreadServer {
         int Index = FindByName(name);
         if (Index != -1)
         {
-            SendToAll(new ServerMessage("SERVER", name + " was kiked by SERVER"));
+            SendToAll(new ServerMessage("SERVER", name + " was kicked by SERVER"));
             UserManagerList.get(Index).Close();
         }
     }
