@@ -125,31 +125,26 @@ public class SingleThreadServer extends Thread{
     private void PareseMSG(Message msg)
     {
         StringBuilder str = new StringBuilder(msg.getValue());
-        while(str.charAt(0) == ' ')
+        while((str.length() > 0) && (str.charAt(0) == ' '))
             str.deleteCharAt(0);
-        if (str.charAt(0) == '@')
-        {
-            int i = str.indexOf(" ");
-            if (i != -1)
-            {
-                StringBuilder name = new StringBuilder(str.substring(1, i));
-                StringBuilder strmsg = new StringBuilder(str.substring(i));
-                SingleThreadServer user;
-                if ((user = MultiThreadServer.FindByName(name.toString())) != null)
-                {
-                    user.Send(new ServerMessage("SERVER", "(User sent  " + getUser().getName() + "  you personally):" + strmsg.toString()));
-                    Send(new ServerMessage(getUser().getName(),"(for " + name.toString() + "):" + strmsg.toString()));
-                }
-                else
-                    Send(new ServerMessage("SERVER", "Error: User  " + name.toString() + " does't exist."));
+        if (str.length() > 0) {
+            if (str.charAt(0) == '@') {
+                int i = str.indexOf(" ");
+                if (i != -1) {
+                    StringBuilder name = new StringBuilder(str.substring(1, i));
+                    StringBuilder strmsg = new StringBuilder(str.substring(i));
+                    SingleThreadServer user;
+                    if ((user = MultiThreadServer.FindByName(name.toString())) != null) {
+                        user.Send(new ServerMessage("SERVER", "(User  " + getUser().getName() + "  sent you personally):" + strmsg.toString()));
+                        Send(new ServerMessage(getUser().getName(), "(for " + name.toString() + "):" + strmsg.toString()));
+                    } else
+                        Send(new ServerMessage("SERVER", "Error: User  " + name.toString() + " does't exist."));
+                } else
+                    Send(new ServerMessage("SERVER", "Error: You did't enter the message"));
+            } else {
+                String strMsg = getUser().getName() + ": " + msg.getValue();
+                SendToAll(new ServerMessage(getUser().getName(), msg.getValue()));
             }
-            else
-                Send(new ServerMessage("SERVER", "Error: You did't enter the message"));
-        }
-        else
-        {
-            String strMsg = getUser().getName() + ": " + msg.getValue();
-            SendToAll(new ServerMessage(getUser().getName(), msg.getValue()));
         }
     }
 
