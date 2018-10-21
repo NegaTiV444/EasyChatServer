@@ -10,7 +10,8 @@ public class Message implements Serializable {
         MSG,
         QUIT,
         PING,
-        HELP
+        HELP,
+        TEST
     }
 
     private MsgType type;

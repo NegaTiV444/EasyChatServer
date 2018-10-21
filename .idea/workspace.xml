@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fde071c9-2221-43ac-8f10-8fea8622d035" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" afterDir="false" />
     </list>
@@ -76,14 +77,42 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1859464815">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="462" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="462" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="71" />
+              <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,14 +120,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+            <state relative-caret-position="357">
+              <caret line="205" column="38" selection-start-line="205" selection-start-column="38" selection-end-line="205" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5047#5048#0" expanded="true" />
+                <element signature="e#5104#5105#0" expanded="true" />
+                <element signature="e#5278#5279#0" expanded="true" />
+                <element signature="e#5359#5360#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -133,11 +175,11 @@
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/Server.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/ServerMessageParser.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/User.java" />
-        <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/ServerMessage.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/Client.java" />
-        <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" />
+        <option value="$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java" />
         <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java" />
+        <option value="$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java" />
       </list>
     </option>
   </component>
@@ -158,41 +200,43 @@
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1615" />
-    <option name="height" value="879" />
+    <option name="height" value="880" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="ChatServer_V_3_0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatServer_V_3_0" type="462c0819:PsiDirectoryNode" />
+              <item name="EasyChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EasyChatServer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ChatServer_V_3_0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatServer_V_3_0" type="462c0819:PsiDirectoryNode" />
+              <item name="EasyChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EasyChatServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ChatServer_V_3_0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatServer_V_3_0" type="462c0819:PsiDirectoryNode" />
+              <item name="EasyChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EasyChatServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NegaTiV" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ChatServer_V_3_0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatServer_V_3_0" type="462c0819:PsiDirectoryNode" />
+              <item name="EasyChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EasyChatServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NegaTiV" type="462c0819:PsiDirectoryNode" />
               <item name="ChatClient" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ChatServer_V_3_0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChatServer_V_3_0" type="462c0819:PsiDirectoryNode" />
+              <item name="EasyChatServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EasyChatServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NegaTiV" type="462c0819:PsiDirectoryNode" />
               <item name="ChatServer" type="462c0819:PsiDirectoryNode" />
@@ -202,8 +246,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,6 +317,7 @@
       <workItem from="1539970018983" duration="17914000" />
       <workItem from="1539995296571" duration="598000" />
       <workItem from="1540033020814" duration="8612000" />
+      <workItem from="1540116618057" duration="4478000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed crash at the first connection, if server is offline">
       <created>1540033417595</created>
@@ -287,13 +330,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77681000" />
+    <option name="totallyTimeSpent" value="82159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20738254" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21006711" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -368,13 +411,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java</url>
-          <line>47</line>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java</url>
-          <line>101</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -397,13 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatClient/ServerMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -418,22 +454,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java">
+    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatClient/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/MultiThreadServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="71" />
+          <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NegaTiV/ChatServer/SingleThreadServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="205" column="38" selection-start-line="205" selection-start-column="38" selection-end-line="205" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5047#5048#0" expanded="true" />
+            <element signature="e#5104#5105#0" expanded="true" />
+            <element signature="e#5278#5279#0" expanded="true" />
+            <element signature="e#5359#5360#0" expanded="true" />
           </folding>
         </state>
       </provider>

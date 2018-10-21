@@ -68,6 +68,7 @@ public class MultiThreadServer {
             while (isRun)
             {
                 Socket socket = server.accept();
+                TestUsers();
                 try
                 {
                     System.out.println("Someone try to connect");
@@ -91,15 +92,14 @@ public class MultiThreadServer {
         return UserManagerList.size();
     }
 
-    public static int FindByName(String name)
+    public static SingleThreadServer FindByName(String name)
     {
         for(SingleThreadServer sts : UserManagerList)
         {
             if (sts.getUser().getName().equals(name))
-                return sts.getUser().getID() - 1;
+                return sts;
         }
-        int i = -1;
-        return i;
+        return null;
     }
 
     private static void ServerStop(ServerSocket server)
@@ -125,11 +125,11 @@ public class MultiThreadServer {
 
     private static void Kik(String name)
     {
-        int Index = FindByName(name);
-        if (Index != -1)
+        SingleThreadServer user = FindByName(name);
+        if (user != null)
         {
             SendToAll(new ServerMessage("SERVER", name + " was kicked by SERVER"));
-            UserManagerList.get(Index).Close();
+            user.Close();
         }
     }
 
@@ -138,4 +138,23 @@ public class MultiThreadServer {
         for(SingleThreadServer sts : MultiThreadServer.UserManagerList)
             sts.Send(msg);
     }
+
+     static void TestUsers()
+    {
+        Thread th = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(SingleThreadServer sts : MultiThreadServer.UserManagerList)
+                    sts.Test();
+            }
+        });
+        th.start();
+        try {
+            th.join();
+        } catch (InterruptedException e) {
+            System.out.println(e.toString());
+        }
+
+    }
+
 }

@@ -15,6 +15,7 @@ public class SingleThreadServer extends Thread{
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
 
+    private boolean isOk = false;
     private boolean isRunning;
 
     public SingleThreadServer(Socket socket) throws IOException
@@ -64,6 +65,9 @@ public class SingleThreadServer extends Thread{
                     case HELP:
                         Help();
                         break;
+                    case TEST:
+                        isOk = true;
+                        break;
                 }
 
 
@@ -80,8 +84,8 @@ public class SingleThreadServer extends Thread{
 
     private void Login(Message msg)
     {
-        int ID = MultiThreadServer.FindByName(msg.getValue());
-        if ((ID == -1) && (!msg.getValue().equalsIgnoreCase("SERVER")))
+        SingleThreadServer ID = MultiThreadServer.FindByName(msg.getValue());
+        if ((ID == null) && (!msg.getValue().equalsIgnoreCase("SERVER")))
         {
             System.out.println("User " + getUser().getName() + " changed name to " + msg.getValue());
             user.setName(msg.getValue());
@@ -90,6 +94,32 @@ public class SingleThreadServer extends Thread{
         }
         else
             Send(new ServerMessage("SERVER", "UNSUCCESSFULLY"));
+    }
+
+    void Test()
+    {
+        Send(new ServerMessage("SERVER", "TEST"));
+        Thread th = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!isOk) {
+                    try {
+                        sleep(50);
+                    } catch (InterruptedException e) {
+
+                    }
+                }
+            }
+        });
+        th.start();
+        try {
+            th.join(500);
+        } catch (InterruptedException e) {
+        }
+        if (isOk)
+            isOk = false;
+        else
+            Close();
     }
 
     private void PareseMSG(Message msg)
@@ -104,9 +134,10 @@ public class SingleThreadServer extends Thread{
             {
                 StringBuilder name = new StringBuilder(str.substring(1, i));
                 StringBuilder strmsg = new StringBuilder(str.substring(i));
-                if ((i = MultiThreadServer.FindByName(name.toString())) != -1)
+                SingleThreadServer user;
+                if ((user = MultiThreadServer.FindByName(name.toString())) != null)
                 {
-                    MultiThreadServer.UserManagerList.get(i).Send(new ServerMessage("SERVER", "(User sent  " + getUser().getName() + "  you personally):" + strmsg.toString()));
+                    user.Send(new ServerMessage("SERVER", "(User sent  " + getUser().getName() + "  you personally):" + strmsg.toString()));
                     Send(new ServerMessage(getUser().getName(),"(for " + name.toString() + "):" + strmsg.toString()));
                 }
                 else
@@ -170,6 +201,7 @@ public class SingleThreadServer extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        isOk = false;
         isRunning = false;
     }
 
