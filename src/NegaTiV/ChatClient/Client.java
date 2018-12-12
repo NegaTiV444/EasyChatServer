@@ -8,10 +8,10 @@ import java.net.Socket;
 
 /*
     V 3.0
-    NegaTiV.NegaTiV.ChatClient
-    Made by NegaTiV (Dubovski V.)
+    ChatClient
+    Made by NegaTiV444 (Dubovski V.)
     16/10/2018
-    Use only with ChatCerver V 3.0
+    Use only with ChatServer V 3.0
 
     Для отображения принятых сообщений в метод SetUpdaterAction передать new UpdaterAction
     и переопределить метод update()
@@ -20,6 +20,17 @@ import java.net.Socket;
 public class Client {
 
     private static final int PORT = 6666;
+
+    private static String IP = "93.125.49.200";
+    //private static String IP = "192.168.43.197";
+
+    public static String getIP() {
+        return IP;
+    }
+
+    public static void setIP(String IP) {
+        Client.IP = IP;
+    }
 
     private static Socket clientSocket;
     private static ObjectInputStream InputStream;
@@ -35,16 +46,14 @@ public class Client {
             @Override
             public void run() {
                 try {
-                    //InetAddress ipAddress = InetAddress.getByName("192.168.0.101");
-                    //InetAddress ipAddress = InetAddress.getByName("easychat.sytes.net");
-                    InetAddress ipAddress = InetAddress.getByName("93.125.49.200");
+                    InetAddress ipAddress = InetAddress.getByName(IP);
+//                    InetAddress ipAddress = InetAddress.getByName("easychat.sytes.net");
 
                     clientSocket = new Socket(ipAddress , PORT);
                     OutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
                     InputStream = new ObjectInputStream(clientSocket.getInputStream());
-                    updater = new Updater(InputStream);
+                    updater = new Updater(InputStream, OutputStream);
                     isConnected = true;
-
                 }
                 catch (IOException e)
                 {
@@ -54,17 +63,22 @@ public class Client {
         });
         th.start();
         try {
-            th.join(5000);
+            th.join(4000);
             if (th.isAlive()) {
                 th.interrupt();
-                clientSocket.close();
-                InputStream.close();
-                OutputStream.close();
+                if (clientSocket != null)
+                    clientSocket.close();
+                if (InputStream != null)
+                    InputStream.close();
+                if (OutputStream != null)
+                    OutputStream.close();
+                isConnected = false;
             }
         }
         catch (InterruptedException e)
         {
             isConnected = false;
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -109,8 +123,6 @@ public class Client {
                     return Send(new Message(Message.MsgType.HELP, ""));
                 else
                     return Send(new Message(Message.MsgType.MSG, msg));
-                //else if (msg.equalsIgnoreCase("/quit"))
-                    //return Send(new Message(Message.MsgType.QUIT, ""));
             } else
                 return Send(new Message(Message.MsgType.MSG, msg));
         }

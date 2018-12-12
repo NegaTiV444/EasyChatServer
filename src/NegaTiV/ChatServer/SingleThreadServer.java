@@ -79,7 +79,6 @@ public class SingleThreadServer extends Thread{
                 Close();
             }
         }
-
     }
 
     private void Login(Message msg)
@@ -104,7 +103,7 @@ public class SingleThreadServer extends Thread{
             public void run() {
                 while (!isOk) {
                     try {
-                        sleep(50);
+                        sleep(6);
                     } catch (InterruptedException e) {
 
                     }
@@ -113,7 +112,7 @@ public class SingleThreadServer extends Thread{
         });
         th.start();
         try {
-            th.join(500);
+            th.join(1000);
         } catch (InterruptedException e) {
         }
         if (isOk)
@@ -179,6 +178,7 @@ public class SingleThreadServer extends Thread{
         }
         catch (IOException e)
         {
+            System.out.println("Message for  "  + this.getUser().getName() + " was not sent: \n" + e.toString());
             System.out.println("Message for  "  + this.getUser().getName() + " was not sent: \n" + e.toString());
         }
     }

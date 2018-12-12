@@ -10,7 +10,7 @@ import java.util.LinkedList;
 /*
     V 3.0
     ChatCerver
-    Made by NegaTiV (Dubovski V.)
+    Made by NegaTiV444 (Dubovski V.)
     16/10/2018
     Use only with ChatClient V 3.0
  */
@@ -23,6 +23,7 @@ public class MultiThreadServer {
 
     public static void main(String[] args) throws IOException
     {
+
         ServerSocket server = new ServerSocket(PORT);
         new Thread(new Runnable() {
             @Override
@@ -80,8 +81,7 @@ public class MultiThreadServer {
                     System.out.println("Something went wrong: " + e.toString());
                 }
             }
-        }
-        finally
+        } finally
         {
             server.close();
         }
@@ -110,14 +110,6 @@ public class MultiThreadServer {
             sts.Close();
         }
         UserManagerList.clear();
-//        try
-//        {
-//            server.close();
-//        }
-//        catch (IOException e)
-//        {
-//            System.out.println("Сервер закрыт" + e.toString());
-//        }
         isRun = false;
         System.out.println("Server stopped.");
         System.exit(0);
@@ -141,20 +133,8 @@ public class MultiThreadServer {
 
      static void TestUsers()
     {
-        Thread th = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for(SingleThreadServer sts : MultiThreadServer.UserManagerList)
-                    sts.Test();
-            }
-        });
-        th.start();
-        try {
-            th.join();
-        } catch (InterruptedException e) {
-            System.out.println(e.toString());
-        }
-
+        for(SingleThreadServer sts : MultiThreadServer.UserManagerList)
+            sts.Test();
     }
 
 }
